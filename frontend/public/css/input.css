@@ -1,3 +1,75 @@
+/* ./public/css/input.css */
+
+/* Importa las utilidades base de Tailwind */
 @tailwind base;
+
+/* Importa los componentes de Tailwind */
 @tailwind components;
+
+/* Importa las utilidades de Tailwind */
 @tailwind utilities;
+
+/* --- Aquí puedes añadir tus `@apply` y CSS personalizado si lo prefieres --- */
+
+/* Estilos para Botones Neón usando @apply */
+.btn-neon-blue {
+    @apply bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow-lg 
+           transition duration-300 ease-in-out transform hover:scale-105 
+           hover:bg-blue-500 border-2 border-blue-600 hover:border-blue-500 
+           hover:shadow-blue-500/50; /* Sombra de neón */
+}
+
+.btn-neon-green {
+    @apply bg-green-600 text-white font-bold py-2 px-6 rounded-full shadow-lg 
+           transition duration-300 ease-in-out transform hover:scale-105 
+           hover:bg-green-500 border-2 border-green-600 hover:border-green-500 
+           hover:shadow-green-500/50;
+}
+
+.btn-neon-purple {
+    @apply bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg 
+           transition duration-300 ease-in-out transform hover:scale-105 
+           hover:bg-purple-500 border-2 border-purple-600 hover:border-purple-500 
+           hover:shadow-purple-500/50;
+}
+
+.btn-neon-red {
+    @apply bg-red-600 text-white font-bold py-2 px-6 rounded-full shadow-lg 
+           transition duration-300 ease-in-out transform hover:scale-105 
+           hover:bg-red-500 border-2 border-red-600 hover:border-red-500 
+           hover:shadow-red-500/50;
+}
+
+/* Botones para la sección Hero */
+.btn-hero-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 px-10 rounded-full text-xl 
+           shadow-xl transform hover:scale-110 transition duration-300 ease-in-out 
+           border-4 border-blue-500 hover:border-blue-400;
+}
+
+.btn-hero-secondary {
+    @apply bg-transparent border-4 border-white text-white font-extrabold py-4 px-10 rounded-full text-xl 
+           shadow-xl transform hover:scale-110 transition duration-300 ease-in-out 
+           hover:bg-white hover:text-gray-900;
+}
+
+/* Efecto hover para las imágenes de producto */
+.product-img-hover {
+    @apply transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg;
+}
+
+/* input.css */
+.btn-neon-orange {
+    @apply bg-orange-600 text-white font-bold py-3 px-6 rounded-full shadow-lg 
+           transition duration-300 ease-in-out transform hover:scale-105 
+           hover:bg-orange-500 border-2 border-orange-600 hover:border-orange-500 
+           hover:shadow-orange-500/50;
+}
+
+/* En public/css/input.css */
+.btn-neon-yellow {
+    @apply bg-yellow-600 text-white font-bold py-3 px-6 rounded-full shadow-lg 
+           transition duration-300 ease-in-out transform hover:scale-105 
+           hover:bg-yellow-500 border-2 border-yellow-600 hover:border-yellow-500 
+           hover:shadow-yellow-500/50;
+}

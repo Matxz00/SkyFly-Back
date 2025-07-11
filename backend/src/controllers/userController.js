@@ -157,7 +157,7 @@ const forgotPassword = async (req, res) => {
         await User.updateResetToken(user.id, resetToken, resetExpires);
         console.log(`Forgot Password - Token de restablecimiento guardado para el usuario ${user.id}.`);
 
-        const resetUrl = `http://localhost:5500/frontend/public/reset-password.html?token=${resetToken}`;
+        const resetUrl = `http://127.0.0.1:5500/public/reset-password.html?token=${resetToken}`;
         console.log(`Forgot Password - URL de restablecimiento generada: ${resetUrl}`);
 
         const mailOptions = {

@@ -3,89 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyFly Bikes - Tu Tienda de Bicicletas</title>
+    <title>SkyFly Bikes - Tu Tienda de BMX Freestyle</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="https://img.icons8.com/ios-filled/50/bicycle--v1.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
-
-    <nav class="bg-gray-800 p-4 shadow-lg">
+<body class="bg-gray-950 text-gray-50 font-sans leading-normal tracking-normal overflow-x-hidden">
+    <nav class="bg-gray-900 p-4 shadow-xl border-b-2 border-purple-600 sticky top-0 z-50 animate-slide-down">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-400 flex items-center">
-                <img src="https://img.icons8.com/ios-filled/50/bicycle--v1.png" alt="Logo Bicicleta" class="h-8 w-8 mr-2 invert">
-                SkyFly Bikes
+            <a href="index.html" class="text-3xl font-extrabold text-blue-400 flex items-center group">
+                <img src="https://img.icons8.com/ios-filled/50/bicycle--v1.png" alt="Logo Bicicleta" class="h-9 w-9 mr-2 invert group-hover:rotate-12 transition-transform duration-300">
+                SkyFly <span class="text-purple-400">Bikes</span>
             </a>
-            <div class="space-x-4">
-                <a href="login.html" id="loginNavLink" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+            <div class="space-x-4 flex items-center">
+                <a href="login.html" id="loginNavLink" class="btn-neon-blue">
                     Iniciar Sesión
                 </a>
-                <a href="register.html" id="registerNavLink" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                <a href="register.html" id="registerNavLink" class="btn-neon-green">
                     Registrarse
                 </a>
-                <a href="#" id="profileNavLink" class="hidden bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                <a href="#" id="profileNavLink" class="hidden btn-neon-purple">
                     Mi Perfil
                 </a>
-                <button id="logoutButton" class="hidden bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                <button id="logoutButton" class="hidden btn-neon-red">
                     Cerrar Sesión
                 </button>
             </div>
         </div>
     </nav>
 
-    <header class="relative bg-cover bg-center h-screen flex items-center justify-center text-center" style="background-image: url('https://images.unsplash.com/photo-1574044701235-9856f616d0cc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative z-10 p-8">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 animate-fade-in-down">
+    <header class="relative bg-cover bg-center h-screen flex items-center justify-center text-center overflow-hidden" 
+            style="background-image: url('https://www.flybikes.com/storage/products/mid-67582fb9d01a5.jpg');">
+        <div class="absolute inset-0 bg-black opacity-70 animate-pulse-bg"></div>
+        <div class="relative z-10 p-8 max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-6 tracking-wide drop-shadow-lg animate-fade-in-down-delay font-orbitron">
                 SkyFly Bikes
             </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up">
-                Donde la pasión por el ciclismo toma vuelo.
+            <p class="text-2xl md:text-3xl text-purple-200 mb-8 font-bebas-neue animate-fade-in-up-delay">
+                Donde el asfalto es tu lienzo y la BMX tu obra de arte.
             </p>
-            <div id="authPrompt" class="space-x-4 animate-scale-in">
-                <a href="register.html" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition duration-300">
+            <div id="authPrompt" class="space-x-6 animate-scale-in-delay">
+                <a href="register.html" class="btn-hero-primary">
                     Únete a la Aventura
                 </a>
-                <a href="login.html" class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition duration-300">
+                <a href="login.html" class="btn-hero-secondary">
                     Ya soy parte
                 </a>
             </div>
-            <div id="welcomeMessage" class="hidden text-3xl font-bold text-green-400 mt-8 animate-fade-in">
-                ¡Bienvenido, <span id="loggedInUsername"></span>!
+            <div id="welcomeMessage" class="hidden text-4xl font-bold text-green-400 mt-12 animate-fade-in">
+                ¡Bienvenido, <span id="loggedInUsername" class="text-blue-300"></span>!
             </div>
             <div id="profileLinkContainer" class="hidden mt-8 animate-fade-in">
-                <a href="profile.html" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition duration-300">
+                <a href="profile.html" class="btn-hero-primary bg-purple-600 hover:bg-purple-700">
                     Ir a mi perfil
                 </a>
             </div>
         </div>
     </header>
 
-    <main id="mainContent" class="container mx-auto p-8 mt-12 mb-20 text-center hidden">
-        <h2 class="text-4xl font-bold text-blue-400 mb-8">Nuestras Últimas Bicicletas</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-gray-800 rounded-lg shadow-lg p-6">
-                <img src="https://images.unsplash.com/photo-1572118835150-13d80362b665?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mountain Bike" class="w-full h-48 object-cover rounded-md mb-4">
-                <h3 class="text-2xl font-bold text-white mb-2">Montañesa X-Treme</h3>
-                <p class="text-gray-400 mb-4">Ideal para senderos rocosos y aventuras épicas.</p>
-                <span class="text-3xl font-extrabold text-green-400">$1200</span>
+    <main id="mainContent" class="container mx-auto p-8 mt-12 mb-20 text-center hidden animate-fade-in">
+        <h2 class="text-5xl font-extrabold text-blue-400 mb-12 drop-shadow-md font-orbitron">BMX Freestyle</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-gray-800 rounded-xl shadow-2xl p-6 transform hover:-translate-y-2 hover:shadow-purple-500/50 transition-all duration-300 ease-in-out card-glow">
+                <img src="https://extremebarcelona.com/wp-content/uploads/2023/08/20230830_064750_0000.jpg" 
+                     alt="BMX Callejera" class="w-full h-64 object-cover rounded-lg mb-6 border-2 border-purple-500 product-img-hover">
+                <h3 class="text-3xl font-bold text-white mb-3 font-orbitron">BMX Callejera Pro</h3>
+                <p class="text-gray-400 mb-5 leading-relaxed">Perfecta para grindar, hacer manuals y dominar las calles. Ligera y resistente.</p>
+                <span class="text-4xl font-extrabold text-green-400 drop-shadow-lg">$899</span>
+                <button class="mt-6 w-full btn-neon-blue">Añadir al Carrito</button>
             </div>
-            <div class="bg-gray-800 rounded-lg shadow-lg p-6">
-                <img src="https://images.unsplash.com/photo-1558981285-d8612140235b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Road Bike" class="w-full h-48 object-cover rounded-md mb-4">
-                <h3 class="text-2xl font-bold text-white mb-2">Velocidad Urbana 5000</h3>
-                <p class="text-gray-400 mb-4">Diseñada para la ciudad y recorridos rápidos.</p>
-                <span class="text-3xl font-extrabold text-green-400">$850</span>
+            
+            <div class="bg-gray-800 rounded-xl shadow-2xl p-6 transform hover:-translate-y-2 hover:shadow-blue-500/50 transition-all duration-300 ease-in-out card-glow">
+                <img src="https://img.olympics.com/images/image/private/t_1-1_1280/primary/zcujcowpieae3rgcbhco" 
+                     alt="BMX Parque" class="w-full h-64 object-cover rounded-lg mb-6 border-2 border-blue-500 product-img-hover">
+                <h3 class="text-3xl font-bold text-white mb-3 font-orbitron">BMX Parque Vert</h3>
+                <p class="text-gray-400 mb-5 leading-relaxed">Diseñada para rampas, bowls y trucos aéreos. Mayor estabilidad y absorción de impacto.</p>
+                <span class="text-4xl font-extrabold text-green-400 drop-shadow-lg">$950</span>
+                <button class="mt-6 w-full btn-neon-green">Añadir al Carrito</button>
             </div>
-            <div class="bg-gray-800 rounded-lg shadow-lg p-6">
-                <img src="https://images.unsplash.com/photo-1510793136272-353a763836a0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Electric Bike" class="w-full h-48 object-cover rounded-md mb-4">
-                <h3 class="text-2xl font-bold text-white mb-2">E-Ride Confort</h3>
-                <p class="text-gray-400 mb-4">Asistencia eléctrica para tus viajes diarios.</p>
-                <span class="text-3xl font-extrabold text-green-400">$1800</span>
+            
+            <div class="bg-gray-800 rounded-xl shadow-2xl p-6 transform hover:-translate-y-2 hover:shadow-red-500/50 transition-all duration-300 ease-in-out card-glow">
+                <img src="https://www.transitionbikes.com/images/2022_PBJ_Complete_Gallery8.jpg" 
+                     alt="BMX Dirt Jump" class="w-full h-64 object-cover rounded-lg mb-6 border-2 border-red-500 product-img-hover">
+                <h3 class="text-3xl font-bold text-white mb-3 font-orbitron">BMX Dirt Slayer</h3>
+                <p class="text-gray-400 mb-5 leading-relaxed">Construida para saltos grandes y aterrizajes suaves. Resistencia extrema para la tierra.</p>
+                <span class="text-4xl font-extrabold text-green-400 drop-shadow-lg">$920</span>
+                <button class="mt-6 w-full btn-neon-red">Añadir al Carrito</button>
             </div>
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-center p-6 mt-12">
-        <p class="text-gray-400">&copy; 2025 SkyFly Bikes. Todos los derechos reservados.</p>
+    <footer class="bg-gray-900 text-center p-6 mt-16 border-t-2 border-purple-600">
+        <p class="text-gray-400 text-lg">&copy; 2025 SkyFly Bikes. Todos los derechos reservados.</p>
+        <div class="flex justify-center space-x-6 mt-4">
+            <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors duration-200">
+                <img src="https://img.icons8.com/ios-filled/30/twitterx--v1.png" alt="Twitter" class="w-7 h-7 invert">
+            </a>
+            <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors duration-200">
+                <img src="https://img.icons8.com/ios-filled/30/instagram-new.png" alt="Instagram" class="w-7 h-7 invert">
+            </a>
+            <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors duration-200">
+                <img src="https://img.icons8.com/ios-filled/30/youtube-play--v1.png" alt="YouTube" class="w-7 h-7 invert">
+            </a>
+        </div>
     </footer>
 
     <script type="module" src="./js/main.js"></script>
