@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - SkyFly Bikes</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/bicycle--v1.png" type="image/x-icon">
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen text-gray-100">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md border border-green-500">
+        <h2 class="text-3xl font-bold mb-6 text-center text-green-400">Bienvenido de Vuelta a SkyFly</h2>
+        <p class="text-center text-gray-400 mb-8">Accede a tu aventura en dos ruedas.</p>
+
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label for="email" class="block text-gray-300 text-sm font-semibold mb-2">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" class="shadow-sm appearance-none border border-gray-600 rounded w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="tu_correo@example.com" required>
+            </div>
+            <div>
+                <label for="password" class="block text-gray-300 text-sm font-semibold mb-2">Contraseña:</label>
+                <input type="password" id="password" name="password" class="shadow-sm appearance-none border border-gray-600 rounded w-full py-3 px-4 bg-gray-700 text-white mb-2 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Tu contraseña secreta" required>
+            </div>
+            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline w-full transform hover:scale-105 transition duration-300">
+                Iniciar Sesión
+            </button>
+        </form>
+
+        <p class="text-center text-gray-400 text-sm mt-6">
+            ¿Olvidaste tu contraseña? <a href="forgot-password.html" class="text-green-400 hover:text-green-300 font-semibold">Restablécela aquí</a>
+        </p>
+        <p class="text-center text-gray-400 text-sm mt-2">
+            ¿No tienes una cuenta? <a href="register.html" class="text-blue-400 hover:text-blue-300 font-semibold">Regístrate</a>
+        </p>
+        <div id="message" class="mt-6 text-center text-sm font-medium"></div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

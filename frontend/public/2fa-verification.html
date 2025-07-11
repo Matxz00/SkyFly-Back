@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación 2FA - SkyFly Bikes</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/bicycle--v1.png" type="image/x-icon">
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen text-gray-100">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md border border-orange-500">
+        <h2 class="text-3xl font-bold mb-6 text-center text-orange-400">Verificación en Dos Pasos</h2>
+        <p class="text-center text-gray-400 mb-8">Ingresa el código de 6 caracteres que hemos enviado a tu correo electrónico para acceder.</p>
+
+        <form id="twoFactorVerificationForm" class="space-y-6">
+            <div>
+                <label for="2faTokenInput" class="block text-gray-300 text-sm font-semibold mb-2">Código de Verificación:</label>
+                <input type="text" id="2faTokenInput" name="2faToken" class="shadow-sm appearance-none border border-gray-600 rounded w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center text-2xl font-bold tracking-widest" maxlength="6" pattern="[a-zA-Z0-9]{6}" title="Solo 6 caracteres alfanuméricos" required>
+            </div>
+            <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline w-full transform hover:scale-105 transition duration-300">
+                Verificar y Acceder
+            </button>
+        </form>
+
+        <p class="text-center text-gray-400 text-sm mt-6">
+            <a href="login.html" class="text-blue-400 hover:text-blue-300 font-semibold">Volver al inicio de sesión</a>
+        </p>
+        <div id="message" class="mt-6 text-center text-sm font-medium"></div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - SkyFly Bikes</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/bicycle--v1.png" type="image/x-icon">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
+
+    <nav class="bg-gray-800 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-400 flex items-center">
+                <img src="https://img.icons8.com/ios-filled/50/bicycle--v1.png" alt="Logo Bicicleta" class="h-8 w-8 mr-2 invert">
+                SkyFly Bikes
+            </a>
+            <div class="space-x-4">
+                <a href="login.html" id="loginNavLink" class="hidden bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                    Iniciar Sesión
+                </a>
+                <a href="register.html" id="registerNavLink" class="hidden bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                    Registrarse
+                </a>
+                <a href="#" id="profileNavLink" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                    Mi Perfil
+                </a>
+                <button id="logoutButton" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                    Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-8 mt-12 mb-20">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-purple-500 max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center text-purple-400">Mi Perfil SkyFly</h2>
+
+            <div id="profileInfo" class="space-y-4 text-lg">
+                <p><span class="font-semibold text-gray-300">ID:</span> <span id="profileId">Cargando...</span></p>
+                <p><span class="font-semibold text-gray-300">Usuario:</span> <span id="profileUsername">Cargando...</span></p>
+                <p><span class="font-semibold text-gray-300">Correo:</span> <span id="profileEmail">Cargando...</span></p>
+                <p><span class="font-semibold text-gray-300">2FA Habilitado:</span> <span id="profileTwoFactorEnabled">Cargando...</span></p>
+            </div>
+
+            <hr class="my-8 border-gray-600">
+
+            <div id="twoFactorSection" class="mt-8">
+                <h3 class="text-2xl font-bold mb-4 text-blue-400">Verificación en Dos Pasos (2FA)</h3>
+                <div id="2faStatus" class="mb-4 text-lg font-semibold"></div>
+
+                <div id="2faSetup" class="hidden space-y-4">
+                    <button id="setup2faButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition duration-300">
+                        Configurar 2FA
+                    </button>
+                    <div id="qrCodeContainer" class="mt-4 text-center hidden">
+                        <p class="text-gray-300 mb-2">Escanea este código con tu aplicación de autenticación (ej. Google Authenticator):</p>
+                        <img id="qrCodeImage" src="" alt="QR Code para 2FA" class="mx-auto border-2 border-gray-600 p-2 rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">O ingresa el secreto manualmente: <code id="2faSecret" class="bg-gray-700 p-1 rounded text-sm break-all"></code></p>
+
+                        <div class="mt-6">
+                            <label for="2faToken" class="block text-gray-300 text-sm font-semibold mb-2">Ingresa el código de 6 dígitos:</label>
+                            <input type="text" id="2faToken" class="shadow-sm appearance-none border border-gray-600 rounded w-full max-w-xs mx-auto py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center text-2xl font-bold tracking-widest" maxlength="6" pattern="\d{6}" title="Solo 6 dígitos numéricos" required>
+                            <button id="verify2faButton" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full mt-4 transform hover:scale-105 transition duration-300">
+                                Verificar y Habilitar 2FA
+                            </button>
+                            <button id="cancel2faButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full mt-4 ml-4 transform hover:scale-105 transition duration-300">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="2faDisable" class="hidden mt-4">
+                    <button id="disable2faButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition duration-300">
+                        Deshabilitar 2FA
+                    </button>
+                </div>
+                <div id="2faMessage" class="mt-4 text-center text-sm font-medium"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-center p-6 mt-12">
+        <p class="text-gray-400">&copy; 2025 SkyFly Bikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
