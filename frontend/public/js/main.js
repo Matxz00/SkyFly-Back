@@ -1,5 +1,3 @@
-// frontend/public/js/main.js
-
 const API_BASE_URL = 'http://localhost:3000/api/users'; // URL base de tu backend
 
 // --- Helper Functions ---
@@ -95,16 +93,16 @@ async function updateUIVisibility() {
             if (profileLinkContainer) profileLinkContainer.classList.remove('hidden');
             if (mainContent) mainContent.classList.remove('hidden'); // Show content for logged-in users
         } else {
-             // If profile fetch fails, treat as not logged in or token invalid
-             removeToken();
-             if (loginNavLink) loginNavLink.classList.remove('hidden');
-             if (registerNavLink) registerNavLink.classList.remove('hidden');
-             if (profileNavLink) profileNavLink.classList.add('hidden');
-             if (logoutButton) logoutButton.classList.add('hidden');
-             if (authPromptDiv) authPromptDiv.classList.remove('hidden');
-             if (welcomeMessageDiv) welcomeMessageDiv.classList.add('hidden');
-             if (profileLinkContainer) profileLinkContainer.classList.add('hidden');
-             if (mainContent) mainContent.classList.add('hidden'); // Hide content
+            // If profile fetch fails, treat as not logged in or token invalid
+            removeToken();
+            if (loginNavLink) loginNavLink.classList.remove('hidden');
+            if (registerNavLink) registerNavLink.classList.remove('hidden');
+            if (profileNavLink) profileNavLink.classList.add('hidden');
+            if (logoutButton) logoutButton.classList.add('hidden');
+            if (authPromptDiv) authPromptDiv.classList.remove('hidden');
+            if (welcomeMessageDiv) welcomeMessageDiv.classList.add('hidden');
+            if (profileLinkContainer) profileLinkContainer.classList.add('hidden');
+            if (mainContent) mainContent.classList.add('hidden'); // Hide content
         }
 
     } else {
@@ -381,39 +379,42 @@ const twoFactorVerificationForm = document.getElementById('twoFactorVerification
 if (twoFactorVerificationForm) {
     twoFactorVerificationForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const codeInput = document.getElementById('2faTokenInput').value;
-        const messageDiv = document.getElementById('message');
-        const userId = sessionStorage.getItem('tempUserIdFor2FA'); // Obtiene el ID del usuario
+        const codeInput = document.getElementById('2faTokenInput').value.trim();
+        const userId = sessionStorage.getItem('tempUserIdFor2FA'); // Debe haberse guardado en login.js
 
         if (!userId) {
-            showMessage('message', 'No se encontró el ID de usuario para 2FA. Por favor, intente iniciar sesión de nuevo.', 'error');
+            showMessage('message', '⚠️ No se encontró el ID de usuario para 2FA. Por favor, inicia sesión de nuevo.', 'error');
             return;
         }
         if (!codeInput) {
-            showMessage('message', 'Por favor, introduce el código de verificación.', 'error');
+            showMessage('message', 'Introduce el código de verificación.', 'error');
             return;
         }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/2fa/verify-email`, { // <-- ¡Nueva ruta!
+            const response = await fetch(`${API_BASE_URL}/2fa/verify-email`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: userId, code: codeInput }), // Enviamos userId y code
+                body: JSON.stringify({ userId, code: codeInput }), 
             });
             const data = await response.json();
 
             if (response.ok) {
-                saveToken(data.token); // Guarda el token JWT final
-                sessionStorage.removeItem('tempUserIdFor2FA'); // Limpia el ID temporal
-                showMessage('message', data.message || 'Verificación 2FA exitosa. Accediendo...', 'success');
+                saveToken(data.token); // Guarda el JWT en localStorage
+                sessionStorage.removeItem('tempUserIdFor2FA'); // Limpia ID temporal
+                showMessage('message', data.message || '✅ Verificación exitosa. Redirigiendo...', 'success');
                 twoFactorVerificationForm.reset();
-                setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+
+                // Aquí defines a dónde quieres ir después
+                setTimeout(() => { 
+                    window.location.href = 'index.html'; 
+                }, 1000);
             } else {
-                showMessage('message', data.message || 'Código de verificación 2FA inválido.', 'error');
+                showMessage('message', data.message || '❌ Código de verificación inválido.', 'error');
             }
         } catch (error) {
-            console.error('Error durante la verificación 2FA para inicio de sesión:', error);
-            showMessage('message', 'Error de conexión o del servidor.', 'error');
+            console.error('Error durante la verificación 2FA:', error);
+            showMessage('message', '⚠️ Error de conexión o servidor.', 'error');
         }
     });
 }

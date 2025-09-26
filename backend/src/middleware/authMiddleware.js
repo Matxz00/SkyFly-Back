@@ -1,34 +1,39 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/userModel.js';
+import User from '../models/User.js';
 
-const protect = async (req, res, next) => {
-    let token;
+const authMiddleware = async (req, res, next) => {
+  let token;
 
-    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        try {
-            // Obtener el token de la cabecera
-            token = req.headers.authorization.split(' ')[1];
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+    try {
+      // Obtener token del encabezado
+      token = req.headers.authorization.split(' ')[1];
 
-            // Verificar el token
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      // Verificar token
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-            // Obtener el usuario del token y adjuntarlo a la petición
-            req.user = await User.findById(decoded.id);
+      // Obtener el usuario del token y adjuntarlo al objeto de solicitud (req)
+      req.user = await User.findById(decoded.id).select('-password');
+      
+      // Si el usuario no se encuentra, lanzar un error
+      if (!req.user) {
+        return res
+          .status(401)
+          .json({ message: 'No autorizado, token fallido. Usuario no encontrado.' });
+      }
 
-            if (!req.user) {
-                return res.status(404).json({ message: 'Usuario no encontrado' });
-            }
-
-            next(); // Continuar con la siguiente función del middleware/ruta
-        } catch (error) {
-            console.error('Error de autenticación:', error);
-            res.status(401).json({ message: 'No autorizado, token inválido o expirado' });
-        }
+      next(); // Pasar al siguiente middleware
+    } catch (error) {
+      console.error('Error en el middleware de autenticación:', error.message);
+      return res.status(401).json({ message: 'No autorizado, token inválido.' });
     }
+  }
 
-    if (!token) {
-        res.status(401).json({ message: 'No autorizado, no se proporcionó token' });
-    }
+  if (!token) {
+    return res
+      .status(401)
+      .json({ message: 'No autorizado, no se encuentra el token.' });
+  }
 };
 
-export { protect };
+export default authMiddleware;
