@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkyFly Bikes - Tu Tienda de BMX Freestyle</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/bicycle--v1.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-950 text-gray-50 font-sans leading-normal tracking-normal overflow-x-hidden">
+  <!-- NAV -->
+  <nav class="bg-gray-900 p-4 shadow-xl border-b-2 border-purple-600 sticky top-0 z-50 animate-slide-down">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="home.html" class="text-3xl font-extrabold text-blue-400 flex items-center group">
+        <img src="https://img.icons8.com/ios-filled/50/bicycle--v1.png" alt="Logo Bicicleta" class="h-9 w-9 mr-2 invert group-hover:rotate-12 transition-transform duration-300">
+        SkyFly <span class="text-purple-400">Bikes</span>
+      </a>
+      <div class="space-x-4 flex items-center">
+        <a href="login.html" id="loginNavLink" class="btn-neon-blue">Iniciar Sesión</a>
+        <a href="register.html" id="registerNavLink" class="btn-neon-green">Registrarse</a>
+        <a href="#" id="profileNavLink" class="hidden btn-neon-purple">Mi Perfil</a>
+        <button id="logoutButton" class="hidden btn-neon-red">Cerrar Sesión</button>
+        <!-- Botón del carrito -->
+        <button id="cartButton" class="hidden btn-neon-purple relative">
+        🛒 Carrito
+        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="relative bg-cover bg-center h-screen flex items-center justify-center text-center overflow-hidden" 
+    style="background-image: url('https://www.flybikes.com/storage/products/mid-67582fb9d01a5.jpg');">
+    <div class="absolute inset-0 bg-black opacity-70 animate-pulse-bg"></div>
+    <div class="relative z-10 p-8 max-w-4xl">
+      <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-6 tracking-wide drop-shadow-lg animate-fade-in-down-delay font-orbitron">
+        SkyFly Bikes
+      </h1>
+      <p class="text-2xl md:text-3xl text-purple-200 mb-8 font-bebas-neue animate-fade-in-up-delay">
+        Donde el asfalto es tu lienzo y la BMX tu obra de arte.
+      </p>
+      <div id="authPrompt" class="space-x-6 animate-scale-in-delay">
+        <a href="register.html" class="btn-hero-primary">Únete a la Aventura</a>
+        <a href="login.html" class="btn-hero-secondary">Ya soy parte</a>
+      </div>
+      <div id="welcomeMessage" class="hidden text-4xl font-bold text-green-400 mt-12 animate-fade-in">
+        ¡Bienvenido, <span id="loggedInUsername" class="text-blue-300"></span>!
+      </div>
+      <div id="profileLinkContainer" class="hidden mt-8 animate-fade-in">
+        <a href="profile.html" class="btn-hero-primary bg-purple-600 hover:bg-purple-700">Ir a mi perfil</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="mainContent" class="container mx-auto p-8 mt-12 mb-20 text-center animate-fade-in">
+    <h2 class="text-5xl font-extrabold text-blue-400 mb-12 drop-shadow-md font-orbitron">BMX Freestyle</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Los productos se inyectan dinámicamente con main.js -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-center p-6 mt-16 border-t-2 border-purple-600">
+    <p class="text-gray-400 text-lg">&copy; 2025 SkyFly Bikes. Todos los derechos reservados.</p>
+    <div class="flex justify-center space-x-6 mt-4">
+      <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors duration-200">
+        <img src="https://img.icons8.com/ios-filled/30/twitterx--v1.png" alt="Twitter" class="w-7 h-7 invert">
+      </a>
+      <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors duration-200">
+        <img src="https://img.icons8.com/ios-filled/30/instagram-new.png" alt="Instagram" class="w-7 h-7 invert">
+      </a>
+      <a href="#" class="text-blue-400 hover:text-blue-500 transition-colors duration-200">
+        <img src="https://img.icons8.com/ios-filled/30/youtube-play--v1.png" alt="YouTube" class="w-7 h-7 invert">
+      </a>
+    </div>
+  </footer>
+
+  <!-- Modal Carrito -->
+  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+    <div class="bg-gray-900 p-6 rounded-xl w-96 shadow-xl relative">
+      <h2 class="text-2xl font-bold mb-4 text-purple-400 text-center">Tu Carrito</h2>
+      
+      <ul id="cartItems" class="space-y-3 text-left text-gray-300 max-h-60 overflow-y-auto"></ul>
+      
+      <p class="text-lg mt-4 text-center">
+        Total: <span id="cartTotal" class="font-bold text-green-400">$0</span>
+      </p>
+      
+      <div class="flex justify-between mt-6">
+        <button id="clearCart" class="btn-neon-red px-4 py-2 rounded">Vaciar</button>
+        <button id="checkout" class="btn-neon-green px-4 py-2 rounded">Comprar</button>
+      </div>
+      
+      <button id="closeCart" class="absolute top-2 right-2 text-gray-400 hover:text-white">✖</button>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - SkyFly Bikes</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-50 min-h-screen flex flex-col">
+
+  <!-- NAV -->
+  <nav class="bg-gray-900/80 backdrop-blur-md p-4 shadow-lg border-b border-purple-600 sticky top-0 z-50 flex justify-between items-center">
+    <a href="index.html" class="px-4 py-2 text-sm font-semibold text-cyan-400 border border-cyan-400 rounded-xl hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300 shadow-md">
+      ⬅ Volver a la tienda
+    </a>
+    <h2 class="text-xl font-bold text-purple-400">SkyFly 🚴</h2>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="container mx-auto p-8 flex-1">
+    <h1 class="text-5xl font-extrabold text-purple-400 mb-8 tracking-wide drop-shadow-lg">
+      🛒 Tu Carrito
+    </h1>
+
+    <!-- Lista del carrito -->
+    <ul id="cartItems" class="space-y-6 bg-gray-900/50 rounded-2xl p-6 shadow-inner border border-gray-700"></ul>
+
+    <!-- Total -->
+    <div class="mt-8 bg-gray-800/70 p-6 rounded-xl shadow-xl flex justify-between items-center">
+      <p class="text-2xl font-semibold">Total:</p>
+      <span id="cartTotal" class="text-3xl font-bold text-green-400">$0</span>
+    </div>
+
+    <!-- Botones -->
+    <div class="mt-10 flex flex-wrap gap-6">
+      <button id="clearCart" class="px-6 py-3 text-lg font-bold rounded-xl border-2 border-red-500 text-red-400 hover:bg-red-500 hover:text-white shadow-lg transition-all duration-300">
+        Vaciar carrito
+      </button>
+      <button id="checkout" class="px-6 py-3 text-lg font-bold rounded-xl border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white shadow-lg transition-all duration-300">
+        Comprar
+      </button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900/80 backdrop-blur-md text-gray-400 text-center py-4 text-sm border-t border-gray-700">
+    © 2025 SkyFly Bikes - Todos los derechos reservados 🚲
+  </footer>
+  <!-- EJEMPLO DE ITEM DEL CARRITO -->
+<li class="flex items-center justify-between bg-gray-800/60 backdrop-blur-md rounded-2xl p-4 shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-700">
+  
+  <!-- Imagen del producto -->
+  <img src="ruta-de-la-imagen.jpg" alt="Producto" class="w-20 h-20 object-cover rounded-lg border-2 border-purple-400">
+
+  <!-- Nombre y cantidad -->
+  <div class="flex-1 ml-4">
+    <h3 class="text-xl font-bold text-purple-300">Nombre del Producto</h3>
+    <p class="text-gray-300 mt-1">Cantidad: <span class="font-semibold text-green-400">2</span></p>
+    <p class="text-gray-400 text-sm mt-1">Descripción breve o categoría</p>
+  </div>
+
+  <!-- Precio y botón eliminar -->
+  <div class="flex flex-col items-end space-y-2">
+    <span class="text-lg font-bold text-green-400">$120</span>
+    <button class="px-3 py-1 text-sm font-semibold rounded-lg border-2 border-red-500 text-red-400 hover:bg-red-500 hover:text-white transition-all duration-300">
+      Eliminar
+    </button>
+  </div>
+
+</li>
+
+
+  <script src="./js/cart.js"></script>
+</body>
+</html>
